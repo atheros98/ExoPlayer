@@ -441,6 +441,7 @@ public class DashManifestParser extends DefaultHandler
         case "urn:mpeg:dash:mp4protection:2011":
           schemeType = xpp.getAttributeValue(null, "value");
           String defaultKid = XmlPullParserUtil.getAttributeValueIgnorePrefix(xpp, "default_KID");
+          defaultKid = defaultKid == null ? "00000000-0000-0000-0000-000000000001" : defaultKid;
           if (!TextUtils.isEmpty(defaultKid)
               && !"00000000-0000-0000-0000-000000000000".equals(defaultKid)) {
             String[] defaultKidStrings = defaultKid.split("\\s+");
